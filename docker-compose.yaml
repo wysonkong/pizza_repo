@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  postgres-db:
+    container_name: pizza_postgres
+    image: postgres # use latest official postgres version
+    restart: always
+    environment:
+      POSTGRES_USER: pizza_dev
+      POSTGRES_PASSWORD: pizza_dev12
+      POSTGRES_DB: pizza_postgres
+      POSTGRES_HOST_AUTH_METHOD: password
+    ports:
+      - "5435:5432"
+
+volumes:
+  postgresql_data:
+    driver: local
